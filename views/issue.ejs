@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Raise an Issue</title>
+    <link rel="stylesheet" href="/stylesheets/issue.css" />
+    <script defer src="/javascripts/issue.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Raise an Issue</h2>
+      <form action="/profile/issue" method="post">
+        <div class="form-group">
+          <label for="category">Category of Issue:</label>
+          <select id="category" name="category">
+            <option value="general">General</option>
+            <option value="technical">Technical</option>
+            <option value="billing">Billing</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="state">State:</label>
+          <select id="state" name="state">
+            <option value="select">select</option>
+            <option value="state1">State 1</option>
+            <option value="state2">State 2</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="district">District:</label>
+          <select id="district" name="district"></select>
+          <option value="select">select</option>
+        </div>
+        <div class="form-group">
+          <label for="pincode">Pincode:</label>
+          <select name="pincode" id="pincode"></select>
+          <option value="select">select</option>
+        </div>
+        <div class="form-group">
+          <label for="problem">Problem:</label>
+          <textarea id="problem" name="problem" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="suggestion">Suggestion:</label>
+          <textarea
+            id="suggestion"
+            name="suggestion"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="landmark">Landmark:</label>
+          <input type="text" id="landmark" name="landmark" required />
+        </div>
+        <!-- <div class="form-group">
+            <label for="upload">Upload Document:</label>
+            <input type="file" id="upload" name="upload" accept="image/*, video/*">
+        </div> -->
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

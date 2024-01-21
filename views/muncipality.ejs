@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/muncipality.css" />
+    <script defer src="/javascripts/muncipality.js"></script>
+    <title>Municipality Problem Search</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Municipality Problem Search</h1>
+    </header>
+
+    <main>
+      <section class="search-container">
+        <label for="searchType">Search On:</label>
+        <select id="searchType">
+          <option value="select">select</option>
+          <option value="category">Categories</option>
+          <option value="pincode">Pincode</option>
+        </select>
+      </section>
+
+      <section class="search-container" id="section1">
+        <form id="form_category" type="Post">
+          <label for="form_category">Select Category:</label>
+          <select id="category" name="cateogry">
+            <option value="road">Road Issues</option>
+            <option value="technical">Technical</option>
+            <option value="waste">Waste Management</option>
+          </select>
+          <button type="submit">Search</button>
+        </form>
+      </section>
+
+      <section class="search-container" id="section2">
+        <form id="form_pincode" type="Post">
+          <label for="form_pincode">SearchPincode:</label>
+          <select name="pincodeInput" id="pincodeInput"></select>
+          <button type="submit">Search</button>
+        </form>
+      </section>
+
+      <section>
+        <ul id="results-container"></ul>
+        <!-- Search results will be displayed here -->
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/pincode_issue.css" />
+    <script defer src="/javascripts/pincode_issue.js"></script>
+
+    <title>User Profile</title>
+  </head>
+  <body>
+    <header>
+      <!-- <h1>hey user</h1> -->
+      <form id="pincodeform" method="Post">
+        <div class="container">
+          <label for="pincode">Select Pincode:</label>
+          <select id="pincode" name="pincode">
+            <option value="100001">100001</option>
+            <option value="100002">100002</option>
+            <option value="45678">45678</option>
+            <option value="54321">54321</option>
+            <!-- Add more pincode options as needed -->
+          </select>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </header>
+
+    <section class="complaints">
+      <h2>Issue Raised</h2>
+
+      <ul class="issuelist" id="issuelist">
+        <!-- Complaints will be dynamically added here -->
+      </ul>
+    </section>
+  </body>
+</html>
