@@ -1,6 +1,6 @@
-document.getElementById('register').addEventListener('submit',function(event){
-    event.preventDefault();
+// document.getElementById('register').addEventListener('submit',function(event){
+//     event.preventDefault();
 
-    alert('user registered succesfully');
+//     alert('user registered succesfully');
 
-})
+// })

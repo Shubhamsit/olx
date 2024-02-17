@@ -11,6 +11,7 @@ const muncipality_userModel = require("../models/muncipality_user");
 let x;
 let k;
 let pincodePromise;
+
 //-----------------------------------------------------------------------------------------------------------
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -46,17 +47,26 @@ router.get("/profile/:userid/issue", async function (req, res) {
 
 router.get("/profile/:userid/userissue", async function (req, res) {
   const userid = req.params.userid;
+  const user = await userModel.findOne({ _id: userid });
+  const username = user.username;
   console.log("userid", userid);
-  res.render("userissue");
+  res.render("userissue", { username });
 });
 //------------------------------------------------
 router.get("/profile/:userid/pincodeissue", async function (req, res) {
   res.render("pincode_issue");
 });
 //--------------------------------------------------------------------------------------------------------
-router.get("/muncipality", function (req, res) {
-  res.render("muncipality");
+router.get("/muncipality/:munid", async function (req, res) {
+  const id = req.params.munid;
+  let user = await muncipality_userModel.findOne({ _id: id });
+  const mun_name = user.name;
+  res.render("muncipality", { mun_name });
 });
+//------------------------------------------------------------------------------------------------------
+router.get('/district',function(req,res){
+  res.render('district');
+})
 //------------------------------------------------------------------------------------------------------
 
 router.get("/profile/:userid", async function (req, res) {
@@ -86,6 +96,7 @@ router.post("/register", async function (req, res, next) {
       password: req.body.password,
       pincode: req.body.pincode,
     });
+    console.log(myuser);
     const registered = await myuser.save();
     res.redirect("/login");
   } catch (error) {
@@ -125,11 +136,10 @@ router.post("/munlogin", async function (req, res) {
 
   if (user) {
     if (user.password === loginpass) {
-
       console.log(user);
       pincodePromise = Promise.resolve(user.pincodes);
       console.log(await pincodePromise);
-      res.redirect("/muncipality");
+      res.redirect(`/muncipality/${user._id}`);
     } else {
       const error = "Invalid credentials. Please enter a valid password.";
       res.render("munloginpage", { error });

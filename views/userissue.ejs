@@ -10,11 +10,15 @@
 </head>
 <body>
     <header>
-        <h1>hey user</h1>
+      
+        <% if (username) { %>
+            
+            <h1 style="color: rgb(43, 226, 208)"> <span id="span" style="color: rgb(226, 43, 195)"> Hey  </span> <%=  username%>
+            <% } %></h1>
     </header>
 
     <section class="complaints">
-        <h2>Issue Raised </h2>
+        <h2>Issue Raised By You </h2>
         <ul class="issuelist" id="issuelist">
             <!-- Complaints will be dynamically added here -->
         </ul>
